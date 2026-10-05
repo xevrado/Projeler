@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>9. Sınıf Fizik - Ömer Yener</title>
+    <style>
+        /* Sayfa sıfırlama ve arka plan ayarları */
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #121212;
+            color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        /* Oynatıcı konteyner alanı */
+        .player-container {
+            width: 90%;
+            max-width: 1000px;
+            background: #1e1e1e;
+            padding: 20px;
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+            box-sizing: border-box;
+        }
+
+        /* Canva iframe gömme alanı (16:9 oran koruyucu) */
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+            overflow: hidden;
+            border-radius: 8px;
+            background-color: #000;
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            border: none;
+        }
+
+        /* Alt bilgi ve başlık alanı */
+        .footer-info {
+            margin-top: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+        }
+
+        .title {
+            font-weight: 600;
+            color: #e0e0e0;
+        }
+
+        .author {
+            color: #aaaaaa;
+        }
+
+        .canva-link {
+            color: #3985ff;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .canva-link:hover {
+            text-decoration: underline;
+            color: #66a3ff;
+        }
+
+        /* Mobil cihazlar için ufak font optimizasyonu */
+        @media (max-width: 600px) {
+            .footer-info {
+                flex-direction: column;
+                gap: 8px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="player-container">
+        <!-- Oynatıcı Alanı -->
+        <div class="video-wrapper">
+            <iframe loading="lazy" src="https://www.canva.com/design/DAHXJ9dxlRs/Ub0UR2V1MFTTS6cOT84Q3Q/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen"></iframe>
+        </div>
+        
+        <!-- Altyazı / Bilgi Alanı -->
+        <div class="footer-info">
+            <span class="title">
+                <a class="canva-link" href="https://canva.com" target="_blank" rel="noopener">9.Sınıf/Fizik</a>
+            </span>
+            <span class="author">Hazırlayan: Ömer Yener</span>
+        </div>
+    </div>
+
+</body>
+</html>
