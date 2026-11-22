@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f6f7f5">
+  <meta name="description" content="Dijitalleşmenin tarih araştırmalarına ve tarih yazımına etkileri.">
+  <title>Tarih ve Dijitalleşme</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f6f7f5;
+      --surface: #ffffff;
+      --ink: #202b34;
+      --muted: #64717b;
+      --accent: #28665d;
+      --accent-soft: #e8f1ed;
+      --line: #e4e9e6;
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: "Segoe UI", Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 2rem;
+    }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .page {
+      width: min(1120px, calc(100% - 48px));
+      margin: 0 auto;
+      padding: 48px 0 64px;
+    }
+
+    .eyebrow {
+      margin: 0 0 12px;
+      color: var(--accent);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .hero {
+      max-width: 980px;
+      margin: 0;
+      padding: 12px 0 30px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    h1,
+    h2 {
+      font-family: var(--serif);
+      font-weight: 500;
+      line-height: 1.2;
+    }
+
+    h1 {
+      max-width: 920px;
+      margin: 0;
+      font-size: clamp(2.1rem, 4vw, 3.25rem);
+      letter-spacing: -0.035em;
+      text-wrap: balance;
+    }
+
+    .hero-intro {
+      max-width: 680px;
+      margin: 20px 0 0;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 220px minmax(0, 720px);
+      justify-content: center;
+      gap: clamp(32px, 7vw, 88px);
+      align-items: start;
+    }
+
+    .contents {
+      position: sticky;
+      top: 28px;
+      padding: 18px 0;
+      min-width: 0;
+    }
+
+    .contents-title {
+      margin: 0 0 12px;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .contents ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .contents a {
+      display: block;
+      padding: 8px 12px;
+      border-left: 2px solid transparent;
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.45;
+      text-decoration: none;
+      transition: color 160ms ease, background-color 160ms ease, border-color 160ms ease;
+    }
+
+    .contents a:hover,
+    .contents a:focus-visible {
+      border-left-color: var(--accent);
+      background: var(--accent-soft);
+      color: var(--accent);
+      outline: none;
+    }
+
+    main {
+      margin-top: 18px;
+      min-width: 0;
+    }
+
+    .article {
+      padding: 36px clamp(24px, 5vw, 56px);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--surface);
+      box-shadow: 0 12px 36px rgb(28 43 37 / 4%);
+    }
+
+    .article section+section {
+      margin-top: 42px;
+      padding-top: 34px;
+      border-top: 1px solid var(--line);
+    }
+
+    h2 {
+      margin: 0 0 16px;
+      font-size: clamp(1.55rem, 3vw, 2rem);
+      letter-spacing: -0.02em;
+      scroll-margin-top: 24px;
+    }
+
+    p {
+      margin: 0 0 16px;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    .source {
+      padding: 18px 20px;
+      border-radius: 8px;
+      background: var(--accent-soft);
+      color: #35544d;
+      font-size: 0.94rem;
+    }
+
+    .source-label {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--accent);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 760px) {
+      .page {
+        width: min(100% - 32px, 680px);
+        padding-top: 28px;
+      }
+
+      .hero {
+        margin-bottom: 22px;
+      }
+
+      .layout {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .contents {
+        position: static;
+        padding: 0 0 8px;
+      }
+
+      .contents ul {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        max-width: 100%;
+        padding-bottom: 8px;
+      }
+
+      .contents li {
+        flex: 0 0 auto;
+      }
+
+      .contents a {
+        padding: 8px 11px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        background: var(--surface);
+        font-size: 0.84rem;
+        white-space: nowrap;
+      }
+
+      .contents a:hover,
+      .contents a:focus-visible {
+        border-color: var(--accent);
+      }
+
+      .article {
+        padding: 28px 22px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    .article-footer {
+      margin-top: 36px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.3px;
+    }
+
+    .footer-divider {
+      border: none;
+      height: 1px;
+      background: var(--line);
+      width: 48px;
+      margin: 0 auto 16px;
+    }
+
+    .footer-authors {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .author-left {
+      flex: 1;
+      text-align: right;
+    }
+
+    .author-separator {
+      flex: 0 0 auto;
+      color: var(--accent);
+    }
+
+    .author-right {
+      flex: 1;
+      text-align: left;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <header class="hero">
+      <p class="eyebrow">Tarih ve dijitalleşme</p>
+      <h1>Kağıttan Ekrana: Dijitalleşmenin Tarih Araştırmalarına ve Yazımına Etkisi</h1>
+      <p class="hero-intro">
+        Teknolojinin gelişmesiyle değişen araştırma yöntemleri, yeni imkanlar ve tarihçilerin karşılaştığı zorluklar.
+      </p>
+    </header>
+
+    <div class="layout">
+      <nav class="contents" aria-label="Sayfa bölümleri">
+        <p class="contents-title">Bu yazıda</p>
+        <ul>
+          <li><a href="#giris">Dijital tarih</a></li>
+          <li><a href="#firsatlar">Fırsatlar ve olumlu etkiler</a></li>
+          <li><a href="#zorluklar">Zorluklar ve olumsuz etkiler</a></li>
+          <li><a href="#degerlendirme">Değerlendirme</a></li>
+          <li><a href="#kaynakca">Kaynakça</a></li>
+        </ul>
+      </nav>
+
+      <main>
+        <article class="article">
+          <section id="giris" aria-labelledby="giris-baslik">
+            <h2 id="giris-baslik">Dijital tarih</h2>
+            <p>
+              Tarih bilimi, geçmişte yaşanan olayları neden-sonuç ilişkisi içinde ve belgelere dayanarak inceleyen
+              dinamik
+              bir disiplindir. Yüzyıllar boyunca tarihçiler tozlu arşiv raflarında fiziksel belgeleri tek tek tarayarak
+              ve
+              el yazmalarını satır satır inceleyerek geçmişin izini sürmüştür. Ancak bilgi iletişim teknolojilerinin
+              hızla
+              gelişmesi ve genel ağın yaygınlaşmasıyla birlikte tarih araştırmalarında yeni bir dönem başlamıştır.
+              Günümüzde dijitalleşme, tarih biliminin hem araştırma yöntemlerini hem de yazım süreçlerini köklü bir
+              şekilde
+              değiştirmektedir.
+            </p>
+          </section>
+
+          <section id="firsatlar" aria-labelledby="firsatlar-baslik">
+            <h2 id="firsatlar-baslik">Fırsatlar ve olumlu etkiler</h2>
+            <p>
+              Dijitalleşmenin tarih araştırmalarına sunduğu en büyük katkı, bilgiye erişim hızını ve kolaylığını
+              artırmasıdır. Kitapların, arşiv belgelerinin ve haritaların taranarak dijital ortama aktarılması sayesinde
+              araştırmacılar zaman ve mekân sınırını aşabilmektedir. Artık dünyanın farklı bir ucundaki bir arşive
+              saniyeler içinde ulaşılabilmektedir.
+            </p>
+            <p>
+              Bununla birlikte “uzak okuma” (distant reading) adı verilen yeni yöntemler sayesinde, bilgisayar
+              yazılımları
+              aracılığıyla on binlerce metin aynı anda taranıp analiz edilebilmektedir. Coğrafi Bilgi Sistemleri (CBS)
+              ve
+              ağ analizleri gibi dijital araçlar, karmaşık tarihsel verileri haritalara ve grafiklere dönüştürerek
+              geçmişteki ilişkilerin daha net görülmesini sağlamaktadır. Ayrıca bulut tabanlı çalışma ortamları, farklı
+              ülkelerdeki tarihçilerin aynı proje üzerinde eş zamanlı ve iş birliği içinde çalışmasına olanak
+              tanımaktadır.
+              Tarih yazımı da klasik düz metinlerin ötesine geçerek görseller, ses kayıtları ve bağlantılarla
+              zenginleştirilmiş “hiper metin” yapısına kavuşmuştur.
+            </p>
+          </section>
+
+          <section id="zorluklar" aria-labelledby="zorluklar-baslik">
+            <h2 id="zorluklar-baslik">Zorluklar ve olumsuz etkiler</h2>
+            <p>
+              Sunduğu tüm bu kolaylıklara rağmen dijitalleşme, tarih araştırmaları için bazı riskleri ve zorlukları da
+              beraberinde getirmektedir. İnternet ortamındaki bilgi kirliliği, araştırmacıların güvenilir akademik
+              kaynaklar ile doğruluğu kanıtlanmamış verileri ayırt etmesini zorlaştırmaktadır. Sonradan üretilmiş veya
+              üzerinde oynanmış sahte dijital belgeler ve haritalar, araştırmaları yanlış yönlendirebilmektedir.
+            </p>
+            <p>
+              Ayrıca dijital kaynakların kullanımı sırasında telif hakları ihlalleri ve veri güvenliği gibi etik ve
+              yasal
+              sorunlar ortaya çıkabilmektedir. Fiziksel belgelerle doğrudan temasın azalması ve dijital araçları
+              kullanma
+              becerisi (dijital okuryazarlık) gerektirmesi de geleneksel yöntemlere alışkın araştırmacılar için bir
+              başka
+              sınırlılık olarak öne çıkmaktadır.
+            </p>
+          </section>
+
+          <section id="degerlendirme" aria-labelledby="degerlendirme-baslik">
+            <h2 id="degerlendirme-baslik">Değerlendirme</h2>
+            <p>
+              Dijitalleşme, geleneksel tarih yazımının yerini almaktan ziyade onu tamamlayan ve güçlendiren bir araçtır.
+              Tarihçilere devasa veri yığınlarını analiz etme ve bulgularını geniş kitlelerle görsel olarak paylaşma
+              imkânı
+              sunmaktadır. Ancak bu süreçte elde edilen her dijital verinin mutlaka tarih biliminin temel kuralı olan
+              “tenkit” (eleştiri) süzgecinden geçirilmesi, güvenilir akademik veri tabanlarının kullanılması ve bilimsel
+              etik kurallarına uyulması gerekmektedir.
+            </p>
+          </section>
+
+          <section id="kaynakca" aria-labelledby="kaynakca-baslik">
+            <h2 id="kaynakca-baslik">Kaynakça</h2>
+            <p class="source">
+              Millî Eğitim Bakanlığı (MEB). <em>Ortaöğretim Tarih Ders Kitabı</em> (“Geçmişin İnşa Sürecinde Tarih”
+              Ünitesi, Dijital Tarih Çalışmaları Bölümü).
+            </p>
+          </section>
+          <div class="article-footer">
+            <hr class="footer-divider">
+            <div class="footer-authors">
+              <div class="author-left">Yazar: Ömer Yener</div>
+              <div class="author-separator">•</div>
+              <div class="author-right">Düzenleyen: Ömer Yener</div>
+            </div>
+          </div>
+        </article>
+      </main>
+    </div>
+  </div>
+</body>
+
+</html>
