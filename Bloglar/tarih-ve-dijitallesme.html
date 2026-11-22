@@ -190,10 +190,21 @@
     }
 
     @media (max-width: 760px) {
-      .page {
-        width: min(100% - 32px, 680px);
-        padding-top: 28px;
+      .footer-authors {
+        flex-direction: column;
+        gap: 4px;
       }
+
+      .author-left,
+      .author-right {
+        flex: none;
+        text-align: center;
+      }
+
+      .author-separator {
+        display: none;
+      }
+    }
 
       .hero {
         margin-bottom: 22px;
